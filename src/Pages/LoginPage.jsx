@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 const LoginPage = () => {
+      const navigate = useNavigate();
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -16,7 +17,7 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login submitted:', form);
-    // Implement API call or authentication logic here
+    navigate('/dashboard');
   };
 
   return (
