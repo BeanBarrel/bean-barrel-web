@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import HomePage from './Pages/HomePage.jsx';
 import LoginPage from './Pages/LoginPage.jsx';
-import Dashboard from './Pages/DashboardPage.jsx';
+import Dashboard from './Pages/SidebarHolder.jsx';
 function App() {
   return (
     <Router>
