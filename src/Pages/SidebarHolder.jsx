@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import DashboardPage from './DashboardPage';
 import CustomersPage from './CustomersPage';
 import MenuPage from './MenuPage';
+import SalePage from './SalePage';
 
 const SidebarHolder = () => {
   const [currentPage, setCurrentPage] = useState('dashboard');
@@ -23,6 +24,8 @@ const SidebarHolder = () => {
       return <CustomersPage onMenuClick={handleMenuClick} />;
     case 'menu':
       return <MenuPage onMenuClick={handleMenuClick} />;
+    case 'sale':
+      return <SalePage onMenuClick={handleMenuClick} />;
     default:
       return <DashboardPage onMenuClick={handleMenuClick} />;
   }

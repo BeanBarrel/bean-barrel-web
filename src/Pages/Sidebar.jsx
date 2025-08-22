@@ -6,6 +6,7 @@ import {
   CoffeeOutlined,
   UserOutlined,
   LogoutOutlined,
+  ShoppingCartOutlined
 } from '@ant-design/icons';
 
 const { Sider } = Layout;
@@ -27,9 +28,13 @@ const Sidebar = ({ selectedKey, onMenuClick }) => (
       <Menu.Item key="menu" icon={<CoffeeOutlined />}>
         Menu
       </Menu.Item>
-      <Menu.Item key="customers" icon={<UserOutlined />}>
+        <Menu.Item key="customers" icon={<UserOutlined />}>
         Customers
       </Menu.Item>
+        <Menu.Item key="sale" icon={<ShoppingCartOutlined />}>
+        Sales
+      </Menu.Item>
+    
       <Menu.Item key="logout" icon={<LogoutOutlined />}>
         Logout
       </Menu.Item>
