@@ -1,70 +1,82 @@
+import React from "react";
+import { Layout, Typography, Row, Col, Card } from "antd";
 
-
-import React from 'react';
+const { Header, Content, Footer } = Layout;
+const { Title, Paragraph } = Typography;
 
 const HomePage = () => {
   return (
-    <div>
-      {/* Hero Section */}
-      <header className="bg-dark text-white text-center py-5">
-        <h1 className="display-4">Bean Barrel</h1>
-        <p className="lead">Brewing Happiness in Every Cup</p>
-    
-      </header>
+    <Layout style={{ minHeight: "100vh" }}>
+      {/* Header */}
+      <Header
+        style={{
+          background: "#1a1a1a",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Title level={2} style={{ color: "#fff", margin: 0 }}>
+          Bean Barrel
+        </Title>
+      </Header>
 
-      {/* Menu Preview */}
-      <section className="container my-5">
-        <h2 className="text-center mb-4">Our Bestsellers</h2>
-        <div className="row justify-content-center">
-          <div className="col-md-3 mb-4">
-            <div className="card h-100">
-              <img
-                src="https://lh3.googleusercontent.com/p/AF1QipOUkYZ3F8y8MSOcOkVTBT1MOOX_UupUorKVz1QV=w289-h312-n-k-no"
-                className="card-img-top"
-                alt="Espresso"
-              />
-              <div className="card-body text-center">
-                <h5 className="card-title">Espresso</h5>
-                <p className="card-text">Strong and bold shot of coffee</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-3 mb-4">
-            <div className="card h-100">
-              <img
-                src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npMCj4P7Jhj3w076PIURVnBo11QM3dUOR7sYxfToZuakz6HdaZtiPkX0WLEOnWCur0G5WFnhItV3tcyymYS2yG7V6r7YP6zfIxGYtYRQldX3Z8kMDifvbm4GEPulK-VfalSfYIh=s1360-w1360-h1020-rw"
-                className="card-img-top"
-                alt="Latte"
-              />
-              <div className="card-body text-center">
-                <h5 className="card-title">Latte</h5>
-                <p className="card-text">Creamy steamed milk with espresso</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-3 mb-4">
-            <div className="card h-100">
-              <img
-                src="https://lh3.googleusercontent.com/p/AF1QipN6miXRYKX2qyNW5hjJbrruFkOVOCQKfes5ACvZ=s1360-w1360-h1020-rw"
-                className="card-img-top"
-                alt="Cappuccino"
-              />
-              <div className="card-body text-center">
-                <h5 className="card-title">Cappuccino</h5>
-                <p className="card-text">Rich foam and smooth coffee blend</p>
-              </div>
-            </div>
-          </div>
+      {/* Content */}
+      <Content style={{ padding: "50px 20px", maxWidth: 1000, margin: "0 auto" }}>
+        <div style={{ textAlign: "center", marginBottom: "40px" }}>
+          <Title level={2}>Welcome to Bean Barrel</Title>
+          <Paragraph style={{ fontSize: "16px" }}>
+            Where every cup tells a story.
+          </Paragraph>
+          <Paragraph style={{ fontSize: "16px", fontWeight: 500 }}>
+            📍 Bean Barrel, Goshree Chathiyath Rd, Ayyappankavu, Kochi
+          </Paragraph>
+          <a
+            href="https://g.co/kgs/dxjvKCx"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontSize: "16px", color: "#1890ff" }}
+          >
+            More Info
+          </a>
         </div>
-      </section>
+
+        {/* About Cards */}
+        <Row gutter={[16, 16]} justify="center">
+          <Col xs={24} sm={12} md={8}>
+            <Card bordered={true} style={{ textAlign: "center" }}>
+              <Title level={4}>Freshly Brewed</Title>
+              <Paragraph>
+                Every cup is made from carefully sourced beans, roasted to
+                perfection for the best taste.
+              </Paragraph>
+            </Card>
+          </Col>
+          <Col xs={24} sm={12} md={8}>
+            <Card bordered={true} style={{ textAlign: "center" }}>
+              <Title level={4}>Cozy Ambiance</Title>
+              <Paragraph>
+                Relax in our warm, inviting cafe space that feels just like home.
+              </Paragraph>
+            </Card>
+          </Col>
+          <Col xs={24} sm={12} md={8}>
+            <Card bordered={true} style={{ textAlign: "center" }}>
+              <Title level={4}>Perfect Spot</Title>
+              <Paragraph>
+                Located in the heart of Kochi, making it the perfect spot to
+                unwind with friends or work remotely.
+              </Paragraph>
+            </Card>
+          </Col>
+        </Row>
+      </Content>
 
       {/* Footer */}
-      <footer className="bg-light text-center py-3">
-        <p className="mb-0">© 2025 Zeeza Global. All rights reserved.</p>
-      </footer>
-    </div>
+      <Footer style={{ textAlign: "center" }}>
+        © 2025 Zeeza Global. All rights reserved.
+      </Footer>
+    </Layout>
   );
 };
 
