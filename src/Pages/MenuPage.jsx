@@ -4,6 +4,7 @@ import { Layout, Card, Typography, Table, Spin, Button, Modal, Form, Input, Inpu
 import axios from 'axios';
 import Sidebar from './Sidebar';
 
+const API_URL = process.env.REACT_APP_API_URL;
 const { Content } = Layout;
 const { Title } = Typography;
 
@@ -17,7 +18,7 @@ const MenuPage = ({ onMenuClick }) => {
     const [addForm] = Form.useForm();
 
     useEffect(() => {
-        axios.get('http://localhost:9091/api/groups')
+        axios.get(`${API_URL}groups`)
             .then(res => {
                 setGroups(res.data);
                 setLoading(false);
@@ -46,7 +47,7 @@ const MenuPage = ({ onMenuClick }) => {
       console.log('Values to be added:', values);
       const { groupId, ...itemData } = values;  // extract groupId and remove from itemData payload
 
-      axios.post(`http://localhost:9091/api/items/group/${groupId}`, itemData)
+      axios.post(`${API_URL}groups/${groupId}`, itemData)
         .then(res => {
           const newItem = res.data;
 
@@ -71,7 +72,7 @@ const MenuPage = ({ onMenuClick }) => {
         form.validateFields().then(values => {
             const itemId = editingItem.itemId;
 
-            axios.put(`http://localhost:9091/api/items/${itemId}`, values)
+            axios.put(`${API_URL}items/${itemId}`, values)
                 .then(res => {
                     const updatedItem = res.data;
 

@@ -42,34 +42,37 @@ const HomePage = () => {
         </div>
 
         {/* About Cards */}
-        <Row gutter={[16, 16]} justify="center">
-          <Col xs={24} sm={12} md={8}>
-            <Card bordered={true} style={{ textAlign: "center" }}>
-              <Title level={4}>Freshly Brewed</Title>
-              <Paragraph>
-                Every cup is made from carefully sourced beans, roasted to
-                perfection for the best taste.
-              </Paragraph>
-            </Card>
-          </Col>
-          <Col xs={24} sm={12} md={8}>
-            <Card bordered={true} style={{ textAlign: "center" }}>
-              <Title level={4}>Cozy Ambiance</Title>
-              <Paragraph>
-                Relax in our warm, inviting cafe space that feels just like home.
-              </Paragraph>
-            </Card>
-          </Col>
-          <Col xs={24} sm={12} md={8}>
-            <Card bordered={true} style={{ textAlign: "center" }}>
-              <Title level={4}>Perfect Spot</Title>
-              <Paragraph>
-                Located in the heart of Kochi, making it the perfect spot to
-                unwind with friends or work remotely.
-              </Paragraph>
-            </Card>
-          </Col>
-        </Row>
+<Row gutter={[16, 16]} justify="center">
+  <Col xs={24} sm={12} md={8}>
+    <Card bordered={true} style={{ textAlign: "center" }}>
+      <Title level={4}>Freshly Brewed</Title>
+      <Paragraph>
+        Every cup is made from carefully sourced beans, roasted to
+        perfection for the best taste on the go.
+      </Paragraph>
+    </Card>
+  </Col>
+
+  <Col xs={24} sm={12} md={8}>
+    <Card bordered={true} style={{ textAlign: "center" }}>
+      <Title level={4}>Food Truck Vibes</Title>
+      <Paragraph>
+        Experience the charm of our mobile cafe, serving coffee with
+        warmth and a smile wherever we park.
+      </Paragraph>
+    </Card>
+  </Col>
+
+  <Col xs={24} sm={12} md={8}>
+    <Card bordered={true} style={{ textAlign: "center" }}>
+      <Title level={4}>Perfect Spot</Title>
+      <Paragraph>
+        Conveniently located on Goshree Chathiyath Rd, Kochi —
+        a perfect stop to grab your favorite coffee on the move.
+      </Paragraph>
+    </Card>
+  </Col>
+</Row>
       </Content>
 
       {/* Footer */}

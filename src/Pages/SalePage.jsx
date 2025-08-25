@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 import axios from 'axios';
 
 const { Header, Content } = Layout;
-
+const API_URL = process.env.REACT_APP_API_URL;
 const SalePage = ({ onMenuClick }) => {
   const [salesData, setSalesData] = useState([]);
 
@@ -12,7 +12,7 @@ const SalePage = ({ onMenuClick }) => {
   useEffect(() => {
     const fetchSales = async () => {
       try {
-        const response = await axios.get('http://localhost:9091/api/sales');
+        const response = await axios.get(`${API_URL}sales`);
         setSalesData(response.data);
       } catch (error) {
         console.error('Error fetching sales:', error);
