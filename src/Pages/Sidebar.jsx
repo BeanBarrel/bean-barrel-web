@@ -29,7 +29,7 @@ const Sidebar = ({ selectedKey, onMenuClick }) => (
         Menu
       </Menu.Item>
         <Menu.Item key="customers" icon={<UserOutlined />}>
-        Customers
+        Inventory
       </Menu.Item>
         <Menu.Item key="sale" icon={<ShoppingCartOutlined />}>
         Sales
