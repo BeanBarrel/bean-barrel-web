@@ -24,21 +24,17 @@ const storeItems = [
   { key: "2", label: "Aluva", id: 1 },
 ];
 
-const SalePage = ({ onMenuClick }) => {
+const SalesPage = ({ onMenuClick }) => {
   const [salesData, setSalesData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  const [selectedStore, setSelectedStore] = useState(null);
-  const [selectedStoreLabel, setSelectedStoreLabel] = useState("Select Store");
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedStore, setSelectedStore] = useState(0); // Default to store 0
+  const [selectedStoreLabel, setSelectedStoreLabel] = useState("Ernakulam");
+  const [selectedDate, setSelectedDate] = useState(dayjs()); // Default to today
 
-  const fetchSales = async (date = null, store = null) => {
+  const fetchSales = async (date = dayjs(), store = 0) => {
     try {
-      let url = `${API_URL}sales`;
-      
-      if (date && store !== null) {
-        const formattedDate = dayjs(date).format("YYYY-MM-DD");
-        url = `${API_URL}sales/by-date-store?date=${formattedDate}&store=${store}`;
-      }
+      const formattedDate = dayjs(date).format("YYYY-MM-DD");
+      const url = `${API_URL}sales/by-date-store?date=${formattedDate}&store=${store}`;
 
       const response = await axios.get(url);
       const sortedData = response.data.sort(
@@ -52,7 +48,7 @@ const SalePage = ({ onMenuClick }) => {
   };
 
   useEffect(() => {
-    fetchSales();
+    fetchSales(selectedDate, selectedStore);
   }, []);
 
   const handleMenuClick = (e) => {
@@ -62,11 +58,7 @@ const SalePage = ({ onMenuClick }) => {
   };
 
   const handleFilter = () => {
-    if (!selectedDate || selectedStore === null) {
-      fetchSales();
-    } else {
-      fetchSales(selectedDate, selectedStore);
-    }
+    fetchSales(selectedDate, selectedStore);
   };
 
   const expandedRowRender = (record) => {
@@ -82,11 +74,12 @@ const SalePage = ({ onMenuClick }) => {
   const columns = [
     { title: 'Bill Number', dataIndex: 'billNumber', key: 'billNumber' },
     { title: 'Customer Name', dataIndex: 'customerName', key: 'customerName' },
-    { title: 'Total Amount', dataIndex: 'totalAmount', key: 'totalAmount' },
+    { title: 'Total Amount', dataIndex: 'totalAmount', key: 'totalAmount', render: (val) => `₹ ${val}` },
     { title: 'Payment Method', dataIndex: 'paymentMethod', key: 'paymentMethod' },
     { title: 'Date', dataIndex: 'dateTime', key: 'dateTime', render: (text) => new Date(text).toLocaleString() },
   ];
 
+  // Calculate totals
   const totalSales = filteredData.length;
   const totalAmount = filteredData.reduce((sum, sale) => sum + Number(sale.totalAmount), 0);
 
@@ -157,6 +150,7 @@ const SalePage = ({ onMenuClick }) => {
         </Header>
 
         <Content style={{ margin: '20px' }}>
+          {/* Top Stats */}
           <Grid container spacing={2} style={{ marginBottom: 20 }}>
             <Grid item xs={12} sm={6} md={3}>
               <Card sx={{ padding: 2, textAlign: 'center' }}>
@@ -178,6 +172,7 @@ const SalePage = ({ onMenuClick }) => {
             </Grid>
           </Grid>
 
+          {/* Sales Table */}
           <Table
             dataSource={filteredData}
             columns={columns}
@@ -190,4 +185,4 @@ const SalePage = ({ onMenuClick }) => {
   );
 };
 
-export default SalePage;
+export default SalesPage;

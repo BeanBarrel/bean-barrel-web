@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import DashboardPage from './DashboardPage';
 import CustomersPage from './CustomersPage';
 import MenuPage from './MenuPage';
-import SalePage from './SalePage';
+import SalePage from './SalesPage';
 
 const SidebarHolder = () => {
   const [currentPage, setCurrentPage] = useState('dashboard');

@@ -20,7 +20,7 @@ const LoginPage = () => {
     console.log('Login submitted:', form);
 
     // Simple login logic: accept any email/password
-  if (form.email === 'sreehari@gmail.com' && form.password === '95269202') {
+  if (form.email === 'sreehari@gmail.com' && form.password === '1234') {
       localStorage.setItem('isLoggedIn', 'true'); // mark user as logged in
       navigate('/dashboard'); // go to dashboard
     } else {
