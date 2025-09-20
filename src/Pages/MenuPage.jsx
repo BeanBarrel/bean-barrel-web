@@ -47,7 +47,9 @@ const MenuPage = ({ onMenuClick }) => {
       console.log('Values to be added:', values);
       const { groupId, ...itemData } = values;  // extract groupId and remove from itemData payload
 
-      axios.post(`${API_URL}groups/${groupId}`, itemData)
+    // Log JSON payload
+    console.log("POST JSON payload:", JSON.stringify(itemData, null, 2));
+      axios.post(`${API_URL}items/group/${groupId}`, itemData)
         .then(res => {
           const newItem = res.data;
 
